@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Algorithm/Algorithm.iml" filepath="$PROJECT_DIR$/Algorithm/Algorithm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DataStructure/DataStructure.iml" filepath="$PROJECT_DIR$/DataStructure/DataStructure.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Hibernate/Hibernate.iml" filepath="$PROJECT_DIR$/Hibernate/Hibernate.iml" />
+      <module fileurl="file://$PROJECT_DIR$/IntelliJ.iml" filepath="$PROJECT_DIR$/IntelliJ.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Java/Java.iml" filepath="$PROJECT_DIR$/Java/Java.iml" />
+      <module fileurl="file://$PROJECT_DIR$/manage-discovery-server/manage-discovery-server.iml" filepath="$PROJECT_DIR$/manage-discovery-server/manage-discovery-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/manage-orders/manage-orders.iml" filepath="$PROJECT_DIR$/manage-orders/manage-orders.iml" />
+      <module fileurl="file://$PROJECT_DIR$/manage-product/manage-product.iml" filepath="$PROJECT_DIR$/manage-product/manage-product.iml" />
+      <module fileurl="file://$PROJECT_DIR$/manage-supplier/manage-supplier.iml" filepath="$PROJECT_DIR$/manage-supplier/manage-supplier.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-boot-aop/spring-boot-aop.iml" filepath="$PROJECT_DIR$/spring-boot-aop/spring-boot-aop.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-cloud-config-server/spring-cloud-config-server.iml" filepath="$PROJECT_DIR$/spring-cloud-config-server/spring-cloud-config-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-core/spring-core.iml" filepath="$PROJECT_DIR$/spring-core/spring-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-core-xml/spring-core-xml.iml" filepath="$PROJECT_DIR$/spring-core-xml/spring-core-xml.iml" />
+      <module fileurl="file://$PROJECT_DIR$/state-bank-india/state-bank-india.iml" filepath="$PROJECT_DIR$/state-bank-india/state-bank-india.iml" />
+    </modules>
+  </component>
+</project>

@@ -5,7 +5,9 @@ public class IterativeSearchBST {
     BST searchBT(BST root, int num) {
         BST node = null;
         while (root != null) {
-            if (root.num == num) { return root; }
+            if (root.num == num) {
+                return root;
+            }
             root = (num < root.left.num) ? root.left : root.right;
         }
         return node;

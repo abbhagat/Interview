@@ -65,19 +65,15 @@ public class TreeTraversal {
     }
 
     public static void inOrderWithoutRecursion(BST root) {
-        if (root == null) {
-            return;
-        }
         Stack<BST> stack = new Stack<>();
-        BST curr = root;
-        while (curr != null || !stack.isEmpty()) {
-            while (curr != null) {    /* Reach the left most BST of the curr BST */
-                stack.push(curr);    /* place pointer to a tree BST on the stack before traversing the BST's left subtree */
-                curr = curr.left;
+        while (root != null || !stack.isEmpty()) {
+            while (root != null) {    /* Reach the left most BST of the curr BST */
+                stack.push(root);    /* place pointer to a tree BST on the stack before traversing the BST's left subtree */
+                root = root.left;
             }
-            curr = stack.pop();     /* Current must be NULL at this point */
-            System.out.print(curr.num + " ");
-            curr = curr.right;     /* we have visited the BST and its left subtree.Now, it's right subtree's turn */
+            root = stack.pop();     /* Current root must be NULL at this point */
+            System.out.print(root.num + " ");
+            root = root.right;     /* we have visited the BST and its left subtree.Now, it's right subtree's turn */
         }
     }
 }

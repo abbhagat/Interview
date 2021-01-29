@@ -1,5 +1,6 @@
 package trees;
 
+import static trees.GivenInOrderAndPreOrderGenerateOriginalTree.buildTree;
 import static trees.TreeTraversal.*;
 
 public class BinaryTreeTraversal {
@@ -22,6 +23,11 @@ public class BinaryTreeTraversal {
         postorder(root);
         System.out.println();
         postOrderWithoutRecursion(root);
+        System.out.println();
+        int[] inorder = {10, 8, 6, 4, 2, 1, 3, 5, 7, 9};
+        int[] preorder = {1, 2, 4, 6, 8, 10, 3, 5, 7, 9};
+        root = buildTree(inorder, preorder, 0, inorder.length - 1);
+        postorder(root);
         TreeHeight height = new TreeHeight();
         System.out.println("\nTree Height :" + height.treeHeight(root));
         CreateBST BST = new CreateBST();

@@ -4,14 +4,13 @@ package trees;
 public class IsMirrorImage {
 
     static boolean isMirrorImage(BST root1, BST root2) {
-        if (root1 != null & root2 != null) {
-            isMirrorImage(root1.left, root2.right);
-            isMirrorImage(root1.right, root2.left);
-            if (root1.num != root2.num) {
-                return false;
-            }
+        if (root1 == null && root2 == null) {
+            return true;
         }
-        return true;
+        if (root1 == null || root2 == null) {
+            return false;
+        }
+        return root1.num == root2.num && isMirrorImage(root1.left, root2.right) && isMirrorImage(root1.right, root2.left);
     }
 
     public static void main(String[] args) {

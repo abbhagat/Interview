@@ -66,22 +66,20 @@ public class ParkingSpot {
             parkingMap.put(level, spotMap);
             availableParkingLevel.put(level, true);
         });
-
-
     }
 
     public String assignParking(String vehicleNum) {
         String parkingDetails = "";
         for (String basementLevel : basement) {
             if (availableParkingLevel.get(basementLevel)) {
-                Map<String, List<Parking>> map = parkingMap.get(basementLevel);
-                Set<Map.Entry<String, List<Parking>>> set = map.entrySet();
-                for (Map.Entry<String, List<Parking>> m : set) {
-                    for (Parking parking : m.getValue()) {
+                Map<String, List<Parking>> spotMap = parkingMap.get(basementLevel);
+                Set<Map.Entry<String, List<Parking>>> set = spotMap.entrySet();
+                for (Map.Entry<String, List<Parking>> map : set) {
+                    for (Parking parking : map.getValue()) {
                         if (parking.isAvaiable()) {
                             parking.setAvaiable(false);
                             parking.setVehicleNumber(vehicleNum);
-                            return basementLevel + " " + m.getKey() + " " + parking.getParkingNumber();
+                            return basementLevel + " " + map.getKey() + " " + parking.getParkingNumber();
                         }
                     }
                 }
@@ -93,16 +91,14 @@ public class ParkingSpot {
     public static void main(String[] args) {
         ParkingSpot parkingSpot = new ParkingSpot();
         parkingSpot.initializeMap();
-        parkingSpot.parkingMap.forEach((k, v) -> {
-            System.out.println(k + "\t" + v);
-        });
-        List<String> vehicles = Arrays.asList("KA01MS1210", "TS07FC8413", "JH01MS1076","KA01MS1210", "TS07FC8413", "JH01MS1076","KA01MS1210", "TS07FC8413", "JH01MS1076","KA01MS1210", "TS07FC8413", "JH01MS1076");
+        parkingSpot.parkingMap.forEach((k, v) -> System.out.println(k + "\t" + v));
+
+        List<String> vehicles = Arrays.asList("KA01MS1210", "TS07FC8413", "JH01MS1076", "KA01MS1210", "TS07FC8413", "JH01MS1076", "KA01MS1210", "TS07FC8413", "JH01MS1076", "KA01MS1210", "TS07FC8413", "JH01MS1076");
         vehicles.forEach(vehicleNum -> {
             String parkingDetails = parkingSpot.assignParking(vehicleNum);
             System.out.println(vehicleNum + " -> " + parkingDetails);
         });
-        parkingSpot.parkingMap.forEach((k, v) -> {
-            System.out.println(k + "\t" + v);
-        });
+
+        parkingSpot.parkingMap.forEach((k, v) -> System.out.println(k + "\t" + v));
     }
 }

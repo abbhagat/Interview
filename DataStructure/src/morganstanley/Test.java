@@ -4,11 +4,12 @@ import java.util.*;
 
 public class Test {
     public static void main(String[] args) {
-        System.out.println(Double.MIN_VALUE);
-        System.out.println(Math.min(Double.MIN_VALUE, 0.0d));
-        char[] chars = new char[] { '\u0097' };
-        String str = new String(chars);
-        byte[] bytes = str.getBytes();
-        System.out.println(Arrays.toString(bytes));
+    Map<String,Integer> map = new HashMap<>();
+    String a = "abc";
+    String b = new String("abc");
+    map.put(a,10);
+    map.put(b,20);
+    map.put(new String("abc"),30);
+        System.out.println(map.get("abc"));
     }
 }

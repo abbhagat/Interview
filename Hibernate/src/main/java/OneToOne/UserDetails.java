@@ -23,7 +23,7 @@ public class UserDetails {
     @Column(name = "USER_NAME", nullable = false)
     private String userName;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "VEHICLE_ID")
     private Vehicles vehicles;
 

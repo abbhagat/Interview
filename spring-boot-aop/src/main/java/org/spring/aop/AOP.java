@@ -20,7 +20,7 @@ public class AOP implements CommandLineRunner {
     @Override
     public void run(String... args) {
         Shape shape = context.getBean("shape", Shape.class);
-        shape.getTriangle().getName();
+        shape.getTriangle().setName("Equilateral");
         shape.getTriangle().setNameAndReturn("Equilateral");
         try {
             shape.getTriangle().setNameAndThrowException("Equilateral");

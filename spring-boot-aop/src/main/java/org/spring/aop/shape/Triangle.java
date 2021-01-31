@@ -16,15 +16,18 @@ public class Triangle {
 
     public void setName(String name) {
         this.name = name;
+        System.out.println("setName() called");
     }
 
     public String setNameAndReturn(String name) {
         this.name = name;
+        System.out.println("setNameAndReturn() called");
         return name;
     }
 
     public void setNameAndThrowException(String name) {
         this.name = name;
+        System.out.println("setNameAndThrowException() called");
         throw new RuntimeException();
     }
 }

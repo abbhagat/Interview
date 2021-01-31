@@ -8,30 +8,31 @@ import org.springframework.stereotype.Component;
 @Component
 public class LoggingAspect {
 
-    @Before("withinTriangle())")
+    @Pointcut("execution(* org.spring.aop.shape*..set*(..))")
+    public void triangle() {
+    }
+
+    @Before("triangle())")
     public void beforeAdvice() {
         System.out.println("@Before");
     }
 
-    @After("withinTriangle())")
+    @After("triangle())")
     public void afterLoggingAdvice() {
         System.out.println("@Around Before TargetAfter");
     }
 
-    @Pointcut("within(org.spring.aop.shape.Triangle)")
-    public void withinTriangle() { }
-
-    @AfterReturning(pointcut = "withinTriangle()", returning = "name")
+    @AfterReturning(pointcut = "triangle()", returning = "name")
     public void afterReturningAdvice(String name) {
-        System.out.println("@AfterReturning");
+        System.out.println("@AfterReturning " + name);
     }
 
-    @AfterThrowing(pointcut = "withinTriangle()", throwing = "ex")
+    @AfterThrowing(pointcut = "triangle()", throwing = "ex")
     public void afterThrowingAdvice(Exception ex) {
         System.out.println("@AfterThrowing " + ex.toString());
     }
 
-    @Around("withinTriangle()")
+    @Around("triangle()")
     public void aroundAdvice(ProceedingJoinPoint proceedingJoinPoint) {
         System.out.println("@Around Before Target");
         try {
@@ -45,6 +46,10 @@ public class LoggingAspect {
 
     @Pointcut("args(org.spring.aop.service.Shape)")
     public void argsWithShapeParameter() {
+    }
+
+    @Pointcut("within(org.spring.aop.shape.Triangle)")
+    public void withinTriangle() {
     }
 
 //    @Before("argsWithShapeParameter()")

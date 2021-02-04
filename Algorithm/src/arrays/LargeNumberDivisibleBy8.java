@@ -7,7 +7,7 @@ public class LargeNumberDivisibleBy8 {
     private static boolean isDivisibleBy8() {
         int length = number.length();
         int num;
-        if (length == 1 || length == 2 || length == 3) {
+        if (length >= 1 && length <= 3) {
             num = Integer.parseInt(number);
             if (num % 8 == 0) {
                 return true;

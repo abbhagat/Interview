@@ -3,6 +3,8 @@ package org.retail.order.model;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 import org.springframework.data.annotation.AccessType;
 import org.springframework.data.annotation.AccessType.Type;
 import org.springframework.data.annotation.*;
@@ -86,6 +88,7 @@ public class Orders implements Serializable {
     private BigDecimal billAmount;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "orders",fetch = FetchType.EAGER)
+    @Fetch(FetchMode.SUBSELECT)
     private List<OrderItems> orderItems = new ArrayList<>();
 
     @CreatedBy

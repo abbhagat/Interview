@@ -41,13 +41,26 @@ public class TMHashMap {
         return null;
     }
 
+    public boolean remove(String key) {
+        int hash = (null == key) ? 0 : key.hashCode() % SIZE;
+        Entry e = table[hash];
+        while (e != null) {
+            if (null == e.getKey() || e.getKey().equals(key)) {
+                table[hash] = null;
+                return true;
+            }
+            e = e.next;
+        }
+        return false;
+    }
+
     public Integer put(String key, int value) {
         int hash = (null == key) ? 0 : key.hashCode() % SIZE;
         Entry e = table[hash];
         if (null != e) {
             if (null == e.getKey() || key.equals(e.getKey())) {
                 Entry prev = null;
-                while (null != e) {
+                while (e != null) {
                     prev = e;
                     e = e.next;
                 }
@@ -58,19 +71,6 @@ public class TMHashMap {
         }
         table[hash] = new Entry(key, value);
         return null;
-    }
-
-    public boolean remove(String key) {
-        int hash = (null == key) ? 0 : key.hashCode() % SIZE;
-        Entry e = table[hash];
-        while (e != null) {
-            if (e.getKey() == null || e.getKey().equals(key)) {
-                table[hash] = null;
-                return true;
-            }
-            e = e.next;
-        }
-        return false;
     }
 
     public void traverseHashMap() {

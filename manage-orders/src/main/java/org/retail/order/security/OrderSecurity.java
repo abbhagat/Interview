@@ -10,8 +10,8 @@ import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
-@EnableWebSecurity
 @Component
+@EnableWebSecurity
 public class OrderSecurity extends WebSecurityConfigurerAdapter {
 
     @Autowired

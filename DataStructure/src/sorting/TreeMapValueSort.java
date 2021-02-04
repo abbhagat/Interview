@@ -4,7 +4,7 @@ import java.util.Comparator;
 import java.util.Map;
 import java.util.TreeMap;
 
-class MapUtility {
+class MapUtility<K, V> {
 
 	public static <K, V extends Comparable<V>> Map sortOnValues(Map<K, V> map) {
         Map<K, V> sortedMap = new TreeMap<>(new TreeMapComparator<>(map));
@@ -34,6 +34,7 @@ public class TreeMapValueSort {
         tm.put("A", 165);
         tm.put("Z", 290);
         tm.put("C", 367);
+        System.out.println(tm);
         System.out.println(MapUtility.sortOnValues(tm));
     }
 }

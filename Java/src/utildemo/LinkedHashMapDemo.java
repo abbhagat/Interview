@@ -329,7 +329,7 @@ class LinkedHashMapDemo<K, V> {
 class LinkedHashMapCustomApp {
 
     public static void main(String[] args) {
-        LinkedHashMapDemo<Integer, Integer> linkedHashMapCustom = new LinkedHashMapDemo<Integer, Integer>();
+        LinkedHashMapDemo<Integer, Integer> linkedHashMapCustom = new LinkedHashMapDemo<>();
 
         linkedHashMapCustom.put(21, 12);
         linkedHashMapCustom.put(25, 121);

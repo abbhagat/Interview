@@ -16,10 +16,9 @@ public class HeapSort {
     void maxheap(int i) {
         int left = 2 * i;
         int right = 2 * i + 1;
-        int largest = (left <= n && a[left] > a[i]) ? left : i;
-        if (right <= n && a[right] > a[largest]) {
-            largest = right;
-        }
+        int largest;
+        largest = (left <= n && a[left] > a[i]) ? left : i;
+        largest = (right <= n && a[right] > a[largest]) ? right : largest;
         if (largest != i) {
             swap(i, largest);
             maxheap(largest);

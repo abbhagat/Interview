@@ -12,6 +12,7 @@ interface I {
 
     static boolean isNull(String str) {
         System.out.println("Interface Null Check");
+        System.out.println(x);
         return str == null ? true : "".equals(str) ? true : false;
     }
 }

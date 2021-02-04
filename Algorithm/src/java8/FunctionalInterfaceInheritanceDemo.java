@@ -1,5 +1,6 @@
 package java8;
 
+@FunctionalInterface
 interface I1 {
 
     void display();
@@ -13,7 +14,7 @@ interface I1 {
     }
 }
 
-
+@FunctionalInterface
 interface I2 {
 
     void display();
@@ -29,11 +30,13 @@ interface I2 {
 
 class A implements I1, I2 {
 
-    @Override
     public void display() {
         System.out.println("A display() method called");
+        I1.staticMethod();
+        I2.staticMethod();
     }
 
+    // Necessary to override as there will be ambiguity
     @Override
     public void defaultMethod() {
         I1.staticMethod();
@@ -47,5 +50,7 @@ public class FunctionalInterfaceInheritanceDemo {
         I1 a = new A();
         a.display();
         a.defaultMethod();
+        I1.staticMethod();
+        I2.staticMethod();
     }
 }

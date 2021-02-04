@@ -5,9 +5,9 @@ spring:
     config:
       server:
         git:
-          uri: ${uri}
-          username: ${username}
-          password: ${password}
+          uri: ${uri, "https://github.com/abbhagat/springboot-config"}
+          username: ${username, "abbhagat"}
+          password: ${password, "Shada$1986"}
 
 server:
   port: 8888

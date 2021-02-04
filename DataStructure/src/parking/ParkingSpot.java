@@ -98,7 +98,6 @@ public class ParkingSpot {
             String parkingDetails = parkingSpot.assignParking(vehicleNum);
             System.out.println(vehicleNum + " -> " + parkingDetails);
         });
-
         parkingSpot.parkingMap.forEach((k, v) -> System.out.println(k + "\t" + v));
     }
 }

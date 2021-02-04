@@ -10,7 +10,7 @@ import org.springframework.core.env.Environment;
 
 @SpringBootApplication
 @EnableConfigServer
-public class SpringCloudConfigServerApplication implements CommandLineRunner {
+public class SpringCloudConfigServer implements CommandLineRunner {
 
     @Autowired
     private Environment env;

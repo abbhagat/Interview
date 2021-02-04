@@ -1,6 +1,6 @@
 package java8;
 
-interface StaticAndDefaultMethodInterface{
+interface StaticAndDefaultMethodInterface {
 
     default void print(String str) {
         if (!isNull(str))
@@ -13,16 +13,19 @@ interface StaticAndDefaultMethodInterface{
     }
 }
 
-public class FunctionalInterfaceStaticMethodDemo implements StaticAndDefaultMethodInterface{
+public class FunctionalInterfaceStaticMethodDemo implements StaticAndDefaultMethodInterface {
 
-    static boolean isNull(String str) {
-        System.out.println("Impl Null Check");
-        return str == null ? true : false;
-    }
-
-    public static void main(String args[]){
+    public static void main(String args[]) {
         FunctionalInterfaceStaticMethodDemo obj = new FunctionalInterfaceStaticMethodDemo();
         obj.print("");
         obj.isNull("abc");
+        StaticAndDefaultMethodInterface.isNull("abc");
+        //StaticAndDefaultMethodInterface.super.print("abc");
+    }
+
+    boolean isNull(String str) {
+        System.out.println("Impl Null Check");
+        StaticAndDefaultMethodInterface.super.print("abc");
+        return str == null ? true : false;
     }
 }

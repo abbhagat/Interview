@@ -23,6 +23,7 @@ public class HashSetDemo {
         hs.add("X");
         hs.add("E");
         hs.add("T");
+        //hs.add(null);  // null we be added to the HashSet
         System.out.println(hs);
         //Set<String> sortedSet = new TreeSet<>((k1, k2) -> k2.compareTo(k1));
         Set<String> sortedSet = sortSet(hs);

@@ -6,17 +6,18 @@ import java.util.TreeMap;
 
 class MapUtility<K, V> {
 
-	public static <K, V extends Comparable<V>> Map sortOnValues(Map<K, V> map) {
-        Map<K, V> sortedMap = new TreeMap<>(new TreeMapComparator<>(map));
+    public static <K extends Comparable<K>, V extends Comparable<V>> Map<K, V> sortOnValues(Map<K, V> map) {
+        Map<K, V> sortedMap = new TreeMap<K, V>((k1, k2) -> map.get(k1).compareTo(map.get(k2)));
         sortedMap.putAll(map);
         return sortedMap;
     }
 }
 
-class TreeMapComparator<K, V extends Comparable<V>> implements Comparator<K> {
-    Map<K, V> map;
+class ValueComparator<K, V extends Comparable<V>> implements Comparator<K> {
 
-    TreeMapComparator(Map<K, V> map) {
+    private Map<K, V> map;
+
+    public ValueComparator(Map<K, V> map) {
         this.map = map;
     }
 

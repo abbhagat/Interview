@@ -4,6 +4,8 @@ import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Projection;
+import org.hibernate.criterion.Projections;
 
 import javax.persistence.Query;
 
@@ -47,7 +49,11 @@ public class SecondLevelCache {
 
         Session session5 = sessionFactory.openSession();
         Criteria criteria = session5.createCriteria(UserDetails.class).addOrder(Order.asc("userID"));
+        criteria.setProjection(Projections.property("userID"));
         criteria.list();
+        Query query = session5.createSQLQuery("SELECT * FROM USER_DETAILS");
+        List<UserDetails> userDetailsList = query.getResultList();
+        userDetailsList.forEach(System.out::println);
     }
 
 }

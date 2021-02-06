@@ -18,15 +18,17 @@ public class ExceptionDefinition extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(value = Exception.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public void sendException(Model model) {
-        //return "exception-page";
+    public String sendException(Model model) {
+        return "exception-page";
     }
 
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<Object> handleCityNotFoundException(Exception ex, WebRequest request) {
-        Map<String, Object> body = new LinkedHashMap<>();
-        body.put("timestamp", LocalDateTime.now());
-        body.put("message", "City not found");
-        return new ResponseEntity<>(body, HttpStatus.NOT_FOUND);
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ResponseEntity<Object> handleCityNotFoundException(Exception e, WebRequest request) {
+        Map<String, Object> responseBody = new LinkedHashMap<>();
+        responseBody.put("timestamp", LocalDateTime.now());
+        responseBody.put("message", "City not found");
+        responseBody.put("error", e.getCause());
+        return new ResponseEntity<>(responseBody, HttpStatus.NOT_FOUND);
     }
 }

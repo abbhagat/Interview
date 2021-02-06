@@ -28,8 +28,10 @@ public class DeleteNodeFromBST {
         return root;
     }
 
-    private BST minValueNode(BST node) {
-        for (; node.left != null; node = node.left) ;
-        return node;
+    private BST minValueNode(BST root) {
+        while (root.left != null) {
+            root = root.left;
+        }
+        return root;
     }
 }

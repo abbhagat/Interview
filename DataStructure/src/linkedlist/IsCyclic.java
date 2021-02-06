@@ -3,9 +3,8 @@ package linkedlist;
 public class IsCyclic {
 
     private static boolean hasCycle(Node first) {
-        Node fast, slow;
-        slow = first;
-        fast = first.next;
+        Node slow = first;
+        Node fast = first.next;
         while (true) {
             if (fast == null || fast.next == null) {
                 return false;

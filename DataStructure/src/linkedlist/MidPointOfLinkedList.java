@@ -3,9 +3,8 @@ package linkedlist;
 public class MidPointOfLinkedList {
 
     static Node midList(Node first) {
-        Node fast, slow;
-        slow  = first;
-        fast  = first.next;
+        Node slow = first;
+        Node fast = first.next;
         while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;

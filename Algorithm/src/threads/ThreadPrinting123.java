@@ -8,7 +8,7 @@ public class ThreadPrinting123 {
         new PrinterThread(3);
     }
 
-    static class PrinterThread implements Runnable {
+    private static class PrinterThread implements Runnable {
         private static final Object monitor = new Object();
         private static volatile int threadIdToRun = 1;
         private int threadId;

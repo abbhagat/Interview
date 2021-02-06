@@ -15,7 +15,7 @@ public class Doubleton implements Cloneable, Serializable {
         return getInstance();
     }
 
-    public static Doubleton getInstance() {
+    public static synchronized Doubleton getInstance() {
         if (null == _instance1) {
             _instance1 = new Doubleton();
             return _instance1;

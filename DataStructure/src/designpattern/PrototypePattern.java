@@ -61,14 +61,14 @@ public class PrototypePattern {
     public static void main(String[] args) throws CloneNotSupportedException {
 
         ShapeCache.loadCache();
+        Shapes shapes;
+        shapes = ShapeCache.getShape("1");
+        System.out.println("Shapes : " + shapes.getType());
 
-        Shapes clonedShape1 = ShapeCache.getShape("1");
-        System.out.println("Shapes : " + clonedShape1.getType());
+        shapes = ShapeCache.getShape("2");
+        System.out.println("Shapes : " + shapes.getType());
 
-        Shapes clonedShape2 = ShapeCache.getShape("2");
-        System.out.println("Shapes : " + clonedShape2.getType());
-
-        Shapes clonedShape3 = ShapeCache.getShape("3");
-        System.out.println("Shapes : " + clonedShape3.getType());
+        shapes = ShapeCache.getShape("3");
+        System.out.println("Shapes : " + shapes.getType());
     }
 }

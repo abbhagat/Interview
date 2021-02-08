@@ -16,11 +16,8 @@ interface MediaPlayer {
 }
 
 interface AdvancedMediaPlayer {
-
     void playVLC(String fileName);
-
     void playMP4(String fileName);
-
 }
 
 class VLC implements AdvancedMediaPlayer {

@@ -9,7 +9,9 @@ import java.util.List;
 
 interface Item {
     String name();
+
     float price();
+
     Packing packing();
 }
 
@@ -88,7 +90,11 @@ class Pepsi extends ColdDrink {
 
 class Meal {
 
-    private List<Item> items = new ArrayList<>();
+    private List<Item> items;
+
+    public Meal(List<Item> items) {
+        this.items = items;
+    }
 
     public void addItem(Item item) {
         items.add(item);
@@ -100,7 +106,6 @@ class Meal {
 
     public float getCost() {
         float cost = 0.0f;
-
         for (Item item : items) {
             cost += item.price();
         }
@@ -108,26 +113,21 @@ class Meal {
     }
 
     public void showItems() {
-
-        for (Item item : items) {
-            System.out.print("Item : " + item.name());
-            System.out.print(", Packing : " + item.packing().pack());
-            System.out.println(", Price : " + item.price());
-        }
+        items.forEach(item -> System.out.print("Item : " + item.name() + ", Packing : " + item.packing().pack() + ", Price : " + item.price()));
     }
 }
 
 class MealBuilder {
 
     public Meal prepareVegMeal() {
-        Meal meal = new Meal();
+        Meal meal = new Meal(new ArrayList<>());
         meal.addItem(new VegBurger());
         meal.addItem(new Coke());
         return meal;
     }
 
     public Meal prepareNonVegMeal() {
-        Meal meal = new Meal();
+        Meal meal = new Meal(new ArrayList<>());
         meal.addItem(new ChickenBurger());
         meal.addItem(new Pepsi());
         return meal;

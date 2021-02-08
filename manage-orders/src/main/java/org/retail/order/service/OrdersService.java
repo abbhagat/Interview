@@ -33,13 +33,14 @@ public class OrdersService {
     public void saveOrders(Orders orders) {
         orders.getOrderItems().forEach(orderItems -> {
             Optional<Supplier> optionalSupplier = Optional.ofNullable(supplierInfo.getSupplier(orderItems));
+            Supplier supplier = null;
             if(optionalSupplier.isPresent()) {
-                Supplier supplier = optionalSupplier.get();
+                supplier = optionalSupplier.get();
                 supplier.setQtyInStock(supplier.getQtyInStock() - orderItems.getQuantity());
             }
             HttpHeaders headers = new HttpHeaders();
             headers.setContentType(MediaType.APPLICATION_JSON);
-            ordersInfo.saveSupplier(new HttpEntity<>(optionalSupplier.get(), headers));
+            ordersInfo.saveSupplier(new HttpEntity<>(supplier, headers));
         });
         ordersDAO.save(orders);
     }

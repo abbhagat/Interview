@@ -8,6 +8,7 @@ import org.hibernate.annotations.FetchMode;
 import org.springframework.data.annotation.AccessType;
 import org.springframework.data.annotation.AccessType.Type;
 import org.springframework.data.annotation.*;
+import org.springframework.data.annotation.Version;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -112,5 +113,6 @@ public class Orders implements Serializable {
     private Date lastModifiedDate;
 
     @Column(name = "VERSION", updatable = false)
+    @Version
     private Integer version;
 }

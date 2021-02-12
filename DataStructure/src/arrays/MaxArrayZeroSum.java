@@ -9,10 +9,10 @@ public class MaxArrayZeroSum {
         Map<Integer, Integer> hm = new HashMap<>();
         int sum = 0, max_len = 0;
         for (int i = 0; i < a.length; i++) {
-            sum += a[i];
             if (a[i] == 0 && max_len == 0) {
                 max_len = 1;
             }
+            sum += a[i];
             if (sum == 0) {
                 max_len = i;
             }

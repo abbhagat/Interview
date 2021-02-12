@@ -5,7 +5,7 @@ import java.util.Stack;
 public class NextGreaterElement {
 
     public static void main(String[] args) {
-        int[] a = { 6, 4, 5, 7, 3, 10, 0 };
+        int[] a = {4, 5, 7, 3, 10, 0};
         Stack<Integer> stack = new Stack<>();
         stack.push(a[0]);
         for (int i = 1; i < a.length; i++) {

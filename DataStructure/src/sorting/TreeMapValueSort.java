@@ -7,7 +7,7 @@ import java.util.TreeMap;
 class MapUtility<K, V> {
 
     public static <K extends Comparable<K>, V extends Comparable<V>> Map<K, V> sortOnValues(Map<K, V> map) {
-        Map<K, V> sortedMap = new TreeMap<K, V>((k1, k2) -> map.get(k1).compareTo(map.get(k2)));
+        Map<K, V> sortedMap = new TreeMap<>((k1, k2) -> map.get(k1).compareTo(map.get(k2)));
         sortedMap.putAll(map);
         return sortedMap;
     }
@@ -32,9 +32,9 @@ public class TreeMapValueSort {
 
 	public static void main(String[] args) {
         Map<String, Integer> tm = new TreeMap<>();
-        tm.put("A", 165);
-        tm.put("Z", 290);
-        tm.put("C", 367);
+        tm.put("A", 1);
+        tm.put("Z", 2);
+        tm.put("C", 3);
         System.out.println(tm);
         System.out.println(MapUtility.sortOnValues(tm));
     }

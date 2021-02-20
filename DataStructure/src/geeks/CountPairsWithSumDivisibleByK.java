@@ -13,7 +13,6 @@ import java.util.stream.IntStream;
  * Output : 7
  */
 
-
 public class CountPairsWithSumDivisibleByK {
 
     private static final int[] a = {2, 2, 1, 7, 5, 3};

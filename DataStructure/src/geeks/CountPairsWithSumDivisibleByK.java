@@ -1,10 +1,5 @@
 package geeks;
-
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.stream.IntStream;
 
 /**
  * Input : A[] = {2, 2, 1, 7, 5, 3}, k = 4
@@ -22,31 +17,26 @@ import java.util.Map;
 public class CountPairsWithSumDivisibleByK {
 
     private static final int[] a = {2, 2, 1, 7, 5, 3};
-    private static Map<String, Integer> map = new HashMap<>();
-    private static List<Integer> al = new ArrayList<>();
 
-    private static void countKdivPairs(int index, int curSum, int givenSum) {
+    private static int countKdivPairs(int k) {
 
-        if (curSum == givenSum) {
-            map.put(al.toString(), al.size());
+        int[] freq = new int[k];     // freq[] to count occurrences of all remainders when divided by k
+        for (int x : a) {           // Count occurrences of all remainders
+            freq[x % k]++;
         }
-
-        if (curSum > givenSum) {
-            return;
+        IntStream.range(0, k).forEach(i -> System.out.print(freq[i] + " "));
+        System.out.println();
+        int sum = freq[0] * (freq[0] - 1) / 2;                // If both pairs are divisible by 'k'
+        for (int i = 1; i <= k / 2 && i != (k - i); i++) {    // count for all i and (k-i) freq pairs
+            sum += freq[i] * freq[k - i];
         }
-
-        for (int i = index; i < a.length; i++) {
-            curSum += a[i];
-            al.add(a[i]);
-            countKdivPairs(i + 1, curSum, givenSum);
-            al.remove(al.size() - 1);
-            curSum -= a[i];
+        if (k % 2 == 0) {                              // If k is even
+            sum += (freq[k / 2] * (freq[k / 2] - 1) / 2);
         }
-
+        return sum;
     }
 
     public static void main(String[] args) {
-        countKdivPairs(0, 0, 0);
-        System.out.println(map);
+        System.out.print(countKdivPairs(4));
     }
 }
